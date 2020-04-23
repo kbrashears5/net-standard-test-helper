@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelper", "src\TestHelper\TestHelper.csproj", "{26B42707-A19E-4317-A48C-3683FEBCF7C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Style", "Style", "{3370F74F-F0CC-4CFB-845F-19D22C550797}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelper.Test", "src\TestHelper.Test\TestHelper.Test.csproj", "{D67A9131-A6E4-421C-B851-4263CD53ED05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26B42707-A19E-4317-A48C-3683FEBCF7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B42707-A19E-4317-A48C-3683FEBCF7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B42707-A19E-4317-A48C-3683FEBCF7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B42707-A19E-4317-A48C-3683FEBCF7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67A9131-A6E4-421C-B851-4263CD53ED05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67A9131-A6E4-421C-B851-4263CD53ED05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67A9131-A6E4-421C-B851-4263CD53ED05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67A9131-A6E4-421C-B851-4263CD53ED05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA8C05D8-5B08-436F-B07E-B91D1884E62E}
+	EndGlobalSection
+EndGlobal

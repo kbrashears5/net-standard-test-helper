@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetStandardTestHelper</name>
+    </assembly>
+    <members>
+        <member name="T:NetStandardTestHelper.NetType">
+            <summary>
+            .NET runtime
+            </summary>
+        </member>
+        <member name="F:NetStandardTestHelper.NetType.NetStandard">
+            <summary>
+            Net standard runtime
+            </summary>
+        </member>
+        <member name="F:NetStandardTestHelper.NetType.Net35Plus">
+            <summary>
+            Net 3.5 + runtime
+            </summary>
+        </member>
+        <member name="T:NetStandardTestHelper.Xunit.TestHelper">
+            <summary>
+            Functions to help unit testing with Xunit
+            </summary>
+        </member>
+        <member name="M:NetStandardTestHelper.Xunit.TestHelper.AssertArgumentNullException(System.ArgumentNullException,System.String,NetStandardTestHelper.NetType)">
+            <summary>
+            While you can use Assert.Throws(), this method asserts that the correct parameter was thrown
+            </summary>
+            <param name="exception">Exception to check</param>
+            <param name="parameterName">Parameter name to assert is null</param>
+            <param name="netType">.NET runtime</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:NetStandardTestHelper.Xunit.TestHelper.AssertExceptionText(System.Exception,System.String)">
+            <summary>
+            Assert that the Exception text is what was expected
+            </summary>
+            <param name="exception"></param>
+            <param name="expectedExceptionText"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:NetStandardTestHelper.Xunit.TestHelper.AssertInnerExceptionText(System.Exception,System.String)">
+            <summary>
+            Assert that the InnerException text is what was expected
+            </summary>
+            <param name="exception"></param>
+            <param name="expectedExceptionText"></param>
+        </member>
+        <member name="T:NetStandardTestHelper.TestValues">
+            <summary>
+            Test values
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.EventArgsEmpty">
+            <summary>
+            Represents an empty <see cref="T:System.EventArgs"/>
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.ExceptionEmpty">
+            <summary>
+            Represents an empty <see cref="T:System.Exception"/>
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.IEnumerableStringEmpty">
+            <summary>
+            Represents an empty string IEnumerable
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.IEnumerableStringNull">
+            <summary>
+            Represents a null string IEnumerable
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.ObjectEmpty">
+            <summary>
+            Represents an empty object
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.ObjectNull">
+            <summary>
+            Represents a null object
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.String">
+            <summary>
+            Represents a basic string
+            </summary>
+        </member>
+        <member name="P:NetStandardTestHelper.TestValues.StringEmpty">
+            <summary>
+            Represents an empty string
+            </summary>
+        </member>
+        <member name="T:NetStandardTestHelper.Text">
+            <summary>
+            Static text class for the <see cref="N:NetStandardTestHelper"/> namespace
+            </summary>
+        </member>
+    </members>
+</doc>
