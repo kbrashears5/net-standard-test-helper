@@ -13,7 +13,7 @@ namespace NetStandardTestHelper.Xunit
         /// </summary>
         /// <param name="exception">Exception to check</param>
         /// <param name="parameterName">Parameter name to assert is null</param>
-        /// <param name="netType">.NET runtime</param>
+        /// <param name="netType">.NET runtime. Defaults to <see cref="NetType.NetStandard"/></param>
         /// <exception cref="ArgumentNullException"></exception>
         public static void AssertArgumentNullException(ArgumentNullException exception,
             string parameterName,
@@ -22,20 +22,17 @@ namespace NetStandardTestHelper.Xunit
             if (exception == null) throw new ArgumentNullException(nameof(exception));
             if (string.IsNullOrWhiteSpace(parameterName)) throw new ArgumentNullException(nameof(parameterName));
 
-            var exceptionText = string.Empty;
+            string exceptionText;
 
             switch (netType)
             {
-                case NetType.NetStandard:
-                    exceptionText = Text.ArgumentNullNetStandard(paramName: parameterName);
-                    break;
-
                 case NetType.Net35Plus:
                     exceptionText = Text.ArgumentNullNet35(paramName: parameterName);
                     break;
 
                 default:
-                    throw new Exception();
+                    exceptionText = Text.ArgumentNullNetStandard(paramName: parameterName);
+                    break;
             }
 
             AssertExceptionText(exception: exception,
