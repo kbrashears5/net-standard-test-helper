@@ -1,0 +1,31 @@
+parameters:
+  DependsOn: ''
+
+stages:
+- stage: 'Release'
+  dependsOn: ${{ parameters.DependsOn }}
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  variables:
+
+  jobs:
+  # track deployments on the environment
+  - deployment: Deploy
+    pool:
+      name: windows-latest
+    # creates an environment if it doesn’t exist
+    environment: net-standard-test-helper
+    strategy:
+      # default deployment strategy
+      runOnce:
+        deploy:
+          steps:
+          - task: NuGetAuthenticate@0
+            displayName: 'Authenticate NuGet'
+            inputs:
+              nuGetServiceConnections: 'NuGet'
+          - task: NuGetCommand@2
+            displayName: 'NuGet Publish'
+            inputs:
+              command: push
+              nuGetFeedType: external
+              publishFeedCredentials: NuGet

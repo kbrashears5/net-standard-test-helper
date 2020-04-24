@@ -75,28 +75,6 @@ stages:
         packDestination: $(Build.ArtifactStagingDirectory)
         versioningScheme: byBuildNumber
 
-    # stage build output
-    - task: CopyFiles@2
-      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-      displayName: 'Stage Build Output'
-      inputs:
-        SourceFolder: '$(ReleaseFolderPath)'
-        TargetFolder: '$(Build.BinariesDirectory)'
-        Contents: '*.*'
-        CleanTargetFolder: true
-        OverWrite: false
-
-    # create a zip file with the build results
-    - task: ArchiveFiles@2
-      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-      displayName: 'Archive Build Output'
-      inputs:
-        archiveType: zip
-        replaceExistingArchive: true
-        rootFolderOrFile: $(Build.BinariesDirectory)
-        includeRootFolder: false
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(FolderName).zip
-
     # publish artifact
     - task: PublishPipelineArtifact@0
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))

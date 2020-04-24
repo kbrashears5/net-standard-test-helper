@@ -23,9 +23,11 @@ stages:
     FolderName: $(FolderName)
     SolutionName: '*.sln'
 
-# # release
-# stages:
-# - template: release.yml
-#   parameters:
-#     ArtifactName: $(ArtifactName)
-#     FolderName: $(FolderName)
+# release
+stages:
+- template: release.yml
+  parameters:
+    DependsOn: 
+      - Build
+    ArtifactName: $(ArtifactName)
+    FolderName: $(FolderName)
