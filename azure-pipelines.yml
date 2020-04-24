@@ -1,0 +1,38 @@
+# define pipeline number (https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options?view=azure-devops&tabs=yaml#build-number-format)
+name: $(Date:yyyy.M.d)$(Rev:.r)
+
+# define resources (https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=example#repository-resource)
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: kbrashears5/yaml
+
+# define variables (https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=example#variables)
+variables:
+  ArtifactName: 'Build'
+  FolderName: ''
+
+# define build triggers (https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=example#trigger)
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - src/*
+
+# build
+stages:
+- template: build.yml
+  parameters:
+    ArtifactName: $(ArtifactName)
+    FolderName: $(FolderName)
+    SolutionName: '*.sln'
+
+# # release
+# stages:
+# - template: release.yml
+#   parameters:
+#     ArtifactName: $(ArtifactName)
+#     FolderName: $(FolderName)
