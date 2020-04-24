@@ -20,8 +20,6 @@ stages:
 - template: build.yml
   parameters:
     ArtifactName: $(ArtifactName)
-    FolderName: $(FolderName)
-    SolutionName: '*.sln'
 
 # release
 - template: release.yml
@@ -29,4 +27,3 @@ stages:
     DependsOn: 
       - Build
     ArtifactName: $(ArtifactName)
-    FolderName: $(FolderName)

@@ -1,14 +1,10 @@
 parameters:
   ArtifactName: ''
-  FolderName: ''
 
 stages:
 - stage: 'Build'
   variables:
-    SourceFolderName: 'src'
     SolutionName: '${{ parameters.SolutionName }}'
-    InstallFolderName: 'setup'
-    ReleaseFolderPath: '$(System.DefaultWorkingDirectory)\$(SourceFolderName)\$(FolderName)\bin\Release'
     BuildPlatform: 'Any CPU'
     BuildConfiguration: 'Release'
 
