@@ -20,7 +20,7 @@ stages:
         deploy:
           steps:
           - task: NuGetCommand@2
-            displayName: 'NuGet publish'
+            displayName: 'NuGet Publish'
             inputs:
               command: push
               feedsToUse: config

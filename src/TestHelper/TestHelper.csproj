@@ -4,6 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>NetStandardTestHelper</AssemblyName>
     <RootNamespace>NetStandardTestHelper</RootNamespace>
+    <Authors>Kevin Brashears</Authors>
+    <Company>kbrashears5</Company>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>Collection of helpers for unit testing with Net Standard</Description>
+    <PackageProjectUrl>https://github.com/kbrashears5/net-standard-test-helper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kbrashears5/net-standard-test-helper</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageLicenseExpression></PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
