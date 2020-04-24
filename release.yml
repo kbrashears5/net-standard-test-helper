@@ -5,7 +5,6 @@ stages:
 - stage: 'Release'
   dependsOn: ${{ parameters.DependsOn }}
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-  variables:
 
   jobs:
   # track deployments on the environment
