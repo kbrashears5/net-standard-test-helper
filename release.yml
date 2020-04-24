@@ -18,13 +18,11 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: NuGetAuthenticate@0
-            displayName: 'Authenticate NuGet'
-            inputs:
-              nuGetServiceConnections: 'NuGet'
           - task: NuGetCommand@2
-            displayName: 'NuGet Publish'
+            displayName: 'NuGet publish'
             inputs:
               command: push
+              feedsToUse: config
+              externalFeedCredentials: NuGet
               nuGetFeedType: external
               publishFeedCredentials: NuGet
