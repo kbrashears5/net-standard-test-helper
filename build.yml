@@ -9,6 +9,8 @@ stages:
     SolutionName: '${{ parameters.SolutionName }}'
     InstallFolderName: 'setup'
     ReleaseFolderPath: '$(System.DefaultWorkingDirectory)\$(SourceFolderName)\$(FolderName)\bin\Release'
+    BuildPlatform: 'Any CPU'
+    BuildConfiguration: 'Release'
 
   jobs:
   - job: Build
@@ -22,12 +24,56 @@ stages:
     - checkout: self
       clean: true
 
-    # build & test
-    - template: templates/build-dotnet.yml@templates
-      parameters:
-        solution: '$(SolutionName)'
-        test: true
-        codeCoverage: false
+    # use specific version of NuGet
+    - task: NuGetToolInstaller@0
+      displayName: 'Use NuGet 4.x'
+      inputs:
+        versionSpec: 4.x
+
+    # NuGet restore
+    - task: NuGetCommand@2
+      displayName: 'NuGet Restore'
+      inputs:
+        restoreSolution: $(SolutionName)
+        restoreDirectory: ''
+
+    # version assemblies
+    - task: colinsalmcorner.colinsalmcorner-buildtasks.version-assemblies-task.VersionAssemblies@2
+      displayName: 'Version Assemblies'
+      inputs:
+        sourcePath: ''
+
+    # build solution
+    - task: VSBuild@1
+      displayName: 'Build Solution'
+      inputs:
+        solution: $(SolutionName)
+        msbuildArgs: ''
+        platform: $(BuildPlatform)
+        configuration: $(BuildConfiguration)
+
+    # install tester
+    - task: VisualStudioTestPlatformInstaller@1
+      displayName: 'Visual Studio Test Platform Installer'
+      inputs:
+        versionSelector: latestStable
+
+    # test solution
+    - task: VSTest@2
+      displayName: 'Test Assemblies'
+      inputs:
+        platform: $(BuildPlatform)
+        configuration: $(BuildConfiguration)
+        codeCoverageEnabled: true
+
+    # create NuGet package
+    - task: NuGetCommand@2
+      displayName: 'Create NuGet Package'
+      inputs:
+        command: pack
+        packagesToPack: '**/*.*proj'
+        packDestination: $(Build.ArtifactStagingDirectory)
+        versioningScheme: byBuildNumber
 
     # stage build output
     - task: CopyFiles@2
