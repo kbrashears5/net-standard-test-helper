@@ -10,7 +10,7 @@ stages:
   # track deployments on the environment
   - deployment: Deploy
     pool:
-      name: windows-latest
+      vmImage: windows-latest
     # creates an environment if it doesn’t exist
     environment: net-standard-test-helper
     strategy:
