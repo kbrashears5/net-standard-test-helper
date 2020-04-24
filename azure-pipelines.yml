@@ -24,7 +24,6 @@ stages:
     SolutionName: '*.sln'
 
 # release
-stages:
 - template: release.yml
   parameters:
     DependsOn: 
