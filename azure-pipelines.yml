@@ -20,6 +20,7 @@ stages:
 - template: build.yml
   parameters:
     ArtifactName: $(ArtifactName)
+    SolutionName: '*.sln'
 
 # release
 - template: release.yml

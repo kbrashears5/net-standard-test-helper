@@ -1,5 +1,6 @@
 parameters:
   ArtifactName: ''
+  SolutionName: '*.sln'
 
 stages:
 - stage: 'Build'
