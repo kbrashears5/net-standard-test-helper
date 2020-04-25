@@ -1,6 +1,7 @@
 parameters:
   DependsOn: ''
   ArtifactName: $(ArtifactName)
+  BuildName: $(BuildName)
 
 stages:
 - stage: 'Release'
@@ -25,6 +26,6 @@ stages:
               command: push
               feedsToUse: config
               externalFeedCredentials: NuGet
-              packagesToPush: '$(System.DefaultWorkingDirectory)/$(ArtifactName)/*.nupkg'
+              packagesToPush: '$(System.DefaultWorkingDirectory)/%(BuildName)/$(ArtifactName)/*.nupkg'
               nuGetFeedType: external
               publishFeedCredentials: NuGet

@@ -3,8 +3,11 @@ name: $(Date:yyyy.M.d)$(Rev:.r)
 
 # define variables (https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=example#variables)
 variables:
+  AccountName: '_kbrashears5'
+  RepoName: 'net-standard-test-helper'
   ArtifactName: 'Build'
   FolderName: ''
+  BuildName: '$(AccountName).$(RepoName)'
 
 # define build triggers (https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=example#trigger)
 trigger:
