@@ -26,6 +26,6 @@ stages:
               command: push
               feedsToUse: config
               externalFeedCredentials: NuGet
-              packagesToPush: '$(System.DefaultWorkingDirectory)/%(BuildName)/$(ArtifactName)/*.nupkg'
+              packagesToPush: '$(System.DefaultWorkingDirectory)/$(BuildName)/$(ArtifactName)/*.nupkg'
               nuGetFeedType: external
               publishFeedCredentials: NuGet
