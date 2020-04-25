@@ -74,6 +74,7 @@ stages:
     
     # publish NuGet Package
     - task: NuGetCommand@2
+      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
       displayName: 'NuGet Publish'
       inputs:
         command: push
