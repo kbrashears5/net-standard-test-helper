@@ -71,11 +71,14 @@ stages:
         packagesToPack: '**/*.*proj'
         packDestination: $(Build.ArtifactStagingDirectory)
         versioningScheme: byBuildNumber
-
-    # publish artifact
-    - task: PublishPipelineArtifact@0
-      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-      displayName: 'Publish Artifact'
+    
+    # publish NuGet Package
+    - task: NuGetCommand@2
+      displayName: 'NuGet Publish'
       inputs:
-        artifactName: $(ArtifactName)
-        targetPath: '$(Build.ArtifactStagingDirectory)'
+        command: push
+        feedsToUse: config
+        externalFeedCredentials: NuGet
+        packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+        nuGetFeedType: external
+        publishFeedCredentials: NuGet
