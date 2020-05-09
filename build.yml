@@ -74,12 +74,11 @@ stages:
     
     # publish NuGet Package
     - task: NuGetCommand@2
-      #condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
       displayName: 'NuGet Publish'
       inputs:
         command: push
         feedsToUse: config
         externalFeedCredentials: NuGet
-        packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
         nuGetFeedType: external
         publishFeedCredentials: NuGet
