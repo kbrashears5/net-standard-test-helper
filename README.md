@@ -27,4 +27,13 @@ public void Test()
 ```
 
 ### Nunit
-TODO
+```c#
+[TestCase]
+public void Test()
+{
+    var ex = Assert.Throws<ArgumentNullException>(() => Class.Function(null));
+
+    TestHelper.AssertArgumentNullException(exception: exception,
+        parameterName: "parameterName");
+}
+```
