@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/kbrashears5/net-standard-test-helper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kbrashears5/net-standard-test-helper</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
-    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
