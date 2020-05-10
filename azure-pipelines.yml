@@ -18,7 +18,9 @@ trigger:
     include:
     - src/*
 
+# build solution and create nuget package
 stages:
 - template: templates/build-dotnet.yml@templates
   parameters:
     pack: true
+    filesToPack: '**/TestHelper.csproj'
