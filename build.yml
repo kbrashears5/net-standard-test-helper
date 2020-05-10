@@ -68,7 +68,7 @@ stages:
       displayName: 'Create NuGet Package'
       inputs:
         command: pack
-        packagesToPack: '**/*.*proj'
+        packagesToPack: '**/TestHelper.csproj'
         packDestination: $(Build.ArtifactStagingDirectory)
         versioningScheme: byBuildNumber
     
