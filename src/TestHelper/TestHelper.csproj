@@ -15,10 +15,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>TestHelper.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>TestHelper.xml</DocumentationFile>
   </PropertyGroup>
 
@@ -26,5 +27,9 @@
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
 
 </Project>
