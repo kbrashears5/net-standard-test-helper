@@ -16,7 +16,7 @@ trigger:
     - master
   paths:
     include:
-    - src/*
+    - src/TestHelper/*
 
 # define pull request triggers (https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#pr-triggers)
 pr:
@@ -26,7 +26,7 @@ pr:
     - master
   paths:
     include:
-    - src/*
+    - src/TestHelper/*
 
 # build solution and create nuget package
 stages:
