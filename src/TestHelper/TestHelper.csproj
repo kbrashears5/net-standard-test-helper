@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -30,6 +30,7 @@
 
   <PropertyGroup>
     <IsPackable>true</IsPackable>
+    <PackageTags>test,helper,netstandard,xunit,nunit,assert</PackageTags>
   </PropertyGroup>
 
 </Project>
