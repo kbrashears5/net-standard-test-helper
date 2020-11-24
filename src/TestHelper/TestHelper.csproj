@@ -30,7 +30,7 @@
 
   <PropertyGroup>
     <IsPackable>true</IsPackable>
-    <PackageTags>test,helper,netstandard,xunit,nunit,assert</PackageTags>
+    <PackageTags>test;helper;netstandard;xunit;nunit;assert</PackageTags>
   </PropertyGroup>
 
 </Project>
