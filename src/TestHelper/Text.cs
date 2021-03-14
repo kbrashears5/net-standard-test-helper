@@ -9,16 +9,16 @@ namespace NetStandardTestHelper
     {
         internal static string ArgumentNullNet35(string paramName)
         {
-            if (string.IsNullOrWhiteSpace(paramName)) throw new ArgumentNullException(nameof(paramName));
-
-            return $"Value cannot be null.\r\nParameter name: {paramName}";
+            return string.IsNullOrWhiteSpace(paramName)
+                ? throw new ArgumentNullException(nameof(paramName))
+                : $"Value cannot be null.\r\nParameter name: {paramName}";
         }
 
         internal static string ArgumentNullNetStandard(string paramName)
         {
-            if (string.IsNullOrWhiteSpace(paramName)) throw new ArgumentNullException(nameof(paramName));
-
-            return $"Value cannot be null. (Parameter '{paramName}')";
+            return string.IsNullOrWhiteSpace(paramName)
+                ? throw new ArgumentNullException(nameof(paramName))
+                : $"Value cannot be null. (Parameter '{paramName}')";
         }
     }
 }
